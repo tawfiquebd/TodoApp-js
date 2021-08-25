@@ -10,6 +10,16 @@ todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo);
 
+// If input field is empty
+function isEmptyField(e) {
+  e.preventDefault();
+  if (todoInput.value == 0) {
+    alert("Input field can not be empty");
+    return;
+  } else {
+  }
+}
+
 // Functions
 function addTodo(event) {
   // prevent from form submitting
@@ -20,6 +30,11 @@ function addTodo(event) {
   //create li
   const newTodo = document.createElement("li"); // create tag li
   newTodo.innerText = todoInput.value;
+  // checking if the input field is empty
+  if (todoInput.value == "") {
+    alert("Input field cann't be empty");
+    return;
+  }
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo); // append newTodo li tag inside todo class
   // Add todo to localstorage
